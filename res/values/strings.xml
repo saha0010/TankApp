@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">TankApp</string>
+
+    <string name="title_activity_menu">Menu</string>
+    
+    <string name="main_menu_tab_entry"><u>Tankeintrag</u></string>
+    <string name="main_menu_tab_settings"><u>Verwaltung</u></string>
+    <string name="main_menu_tab_log"><u>Log</u></string>
+    <string name="main_menu_tab_stats"><u>Statistik</u></string>
+    
+    <string name="entry_label_1">Preis pro Liter:</string>
+    <string name="entry_label_2">Getankte Liter:</string>
+    <string name="entry_label_3">Kilometerstand:</string>
+    <string name="entry_label_4">Ort/Tankstelle:</string>
+    <string name="entry_menu_remove">Letzten Eintrag entfernen</string>
+    
+    
+    
+    
 </resources>

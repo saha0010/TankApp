@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color
+        name="logo_color">#FFFF0F</color>
+    <color
+        name="background">#DDDDDD</color>
+    <color
+        name="title_color">#F0F0F0</color>
+    <color
+        name="title_glow">#F00</color>
+    <color
+        name="menu_color">#FFFF0F</color>
+    <color
+        name="menu_glow">#F00</color>
+    <color
+        name="error_color">#F00</color>
+</resources>
