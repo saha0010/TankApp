@@ -1,20 +1,28 @@
 <resources>
     <string name="app_name">TankApp</string>
 
-    <string name="title_activity_menu">Menu</string>
+    <string name="menu"		>Hauptmenu</string>
+    <string name="entry"	>Tankeintrag</string>
+    <string name="settings"	>Verwaltung</string>
+    <string name="log"		>Log</string>
+    <string name="stats"	>Statistik</string>
     
-    <string name="main_menu_tab_entry"><u>Tankeintrag</u></string>
-    <string name="main_menu_tab_settings"><u>Verwaltung</u></string>
-    <string name="main_menu_tab_log"><u>Log</u></string>
-    <string name="main_menu_tab_stats"><u>Statistik</u></string>
+    <string name="settings_car"		>Fahrzeuge</string>
+    <string name="settings_location">Ort/Tankstelle</string>
+      
+    <string name="settings_optionmenu_addLocation">Ort/Tankstelle hinzufügen</string>
+    <string name="settings_optionmenu_removeLocation">Ort/Tankstelle entfernen</string>
+    <string name="settings_optionmenu_editLocation">Ort/Tankstelle bearbeiten</string>
+    <string name="settings_optionmenu_addCar">Fahrzeug hinzufügen</string>
+    <string name="settings_optionmenu_removeCar">Fahrzeug entfernen</string>
+    <string name="settings_optionmenu_editCar">Fahrzeug bearbeiten</string>
     
     <string name="entry_label_1">Preis pro Liter:</string>
     <string name="entry_label_2">Getankte Liter:</string>
     <string name="entry_label_3">Kilometerstand:</string>
     <string name="entry_label_4">Ort/Tankstelle:</string>
-    <string name="entry_menu_remove">Letzten Eintrag entfernen</string>
     
-    
-    
-    
+    <string name="entry_optionmenu_remove">Letzten Eintrag entfernen</string>
+
+  
 </resources>

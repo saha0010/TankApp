@@ -1,0 +1,41 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<!-- ADD -->
+		<item
+			android:id="@+id/settings_menuitem_addCar"
+			android:icon="@android:drawable/ic_menu_add"
+			android:title="@string/settings_optionmenu_addCar">
+		</item>
+		<item
+			android:id="@+id/settings_menuitem_addLocation"
+			android:icon="@android:drawable/ic_menu_add"
+			android:title="@string/settings_optionmenu_addLocation">
+		</item>
+		
+	<!-- EDIT -->
+		<item
+			android:id="@+id/settings_menuitem_editCar"
+			android:icon="@android:drawable/ic_menu_edit"
+			android:title="@string/settings_optionmenu_editCar">
+		</item>
+		<item
+			android:id="@+id/settings_menuitem_editLocation"
+			android:icon="@android:drawable/ic_menu_edit"
+			android:title="@string/settings_optionmenu_editLocation">
+		</item>
+
+
+		<!-- REMOVE -->
+		<item
+			android:id="@+id/settings_menuitem_removeCar"
+			android:icon="@android:drawable/ic_menu_delete"
+			android:title="@string/settings_optionmenu_removeCar">
+		</item>
+		<item
+			android:id="@+id/settings_menuitem_removeLocation"
+			android:icon="@android:drawable/ic_menu_delete"
+			android:title="@string/settings_optionmenu_removeLocation">
+		</item>
+
+
+</menu>
