@@ -66,7 +66,7 @@ public class MenuActivity extends AppActivity
 				}
 				else if (txt.equalsIgnoreCase(getResources().getString(R.string.stats)))
 				{
-					startActivity(new Intent(MenuActivity.this, StatisticsActivity.class));
+					startActivity(new Intent(MenuActivity.this, StatsActivity.class));
 				}
 
 			}
