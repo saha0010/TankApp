@@ -1,7 +1,0 @@
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/entry_menu_item"
-        android:title="@string/entry_menu_remove"
-        android:icon="@android:drawable/ic_menu_delete"></item>
-</menu>

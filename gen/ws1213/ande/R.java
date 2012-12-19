@@ -34,36 +34,40 @@ public final class R {
         public static final int map=0x7f020004;
     }
     public static final class id {
-        public static final int EditText_gl=0x7f080006;
-        public static final int EditText_ks=0x7f080008;
-        public static final int EditText_ppl=0x7f080004;
-        public static final int LinearLayout_entry=0x7f080001;
-        public static final int ListView_Menu=0x7f08000c;
-        public static final int ScrollViewEntry=0x7f080000;
-        public static final int Spinner_loc=0x7f08000a;
-        public static final int TableLayout_stats=0x7f080010;
-        public static final int TableView_Log=0x7f08000b;
-        public static final int TextView_entry_activecar=0x7f080002;
-        public static final int TextView_menu_label_1=0x7f080003;
-        public static final int TextView_menu_label_2=0x7f080005;
-        public static final int TextView_menu_label_3=0x7f080007;
-        public static final int TextView_menu_label_4=0x7f080009;
-        public static final int imageView_stats=0x7f080015;
-        public static final int listview_menu_row=0x7f080016;
-        public static final int log_menuitem_save=0x7f080017;
-        public static final int scrollView_stats=0x7f08000f;
-        public static final int scrollview_settings_cartab=0x7f08000d;
-        public static final int scrollview_settings_locationtab=0x7f08000e;
-        public static final int settings_menuitem_addCar=0x7f080018;
-        public static final int settings_menuitem_addLocation=0x7f080019;
-        public static final int settings_menuitem_editCar=0x7f08001a;
-        public static final int settings_menuitem_editLocation=0x7f08001b;
-        public static final int settings_menuitem_removeCar=0x7f08001c;
-        public static final int settings_menuitem_removeLocation=0x7f08001d;
-        public static final int tableRow_stats_FirstRow=0x7f080011;
-        public static final int tableRow_stats_ForthRow=0x7f080014;
-        public static final int tableRow_stats_SecondRow=0x7f080012;
-        public static final int tableRow_stats_ThirdRow=0x7f080013;
+        public static final int EditText_gl=0x7f090006;
+        public static final int EditText_ks=0x7f090008;
+        public static final int EditText_ppl=0x7f090004;
+        public static final int LinearLayout_entry=0x7f090001;
+        public static final int ListView_Menu=0x7f09000c;
+        public static final int RelativeLayout1=0x7f090016;
+        public static final int ScrollViewEntry=0x7f090000;
+        public static final int Spinner_loc=0x7f09000a;
+        public static final int TableLayout_stats=0x7f090010;
+        public static final int TableView_Log=0x7f09000b;
+        public static final int TextView_entry_activecar=0x7f090002;
+        public static final int TextView_menu_label_1=0x7f090003;
+        public static final int TextView_menu_label_2=0x7f090005;
+        public static final int TextView_menu_label_3=0x7f090007;
+        public static final int TextView_menu_label_4=0x7f090009;
+        public static final int imageButton1=0x7f090017;
+        public static final int imageView_stats=0x7f090015;
+        public static final int listview_menu_row=0x7f09001a;
+        public static final int log_menuitem_save=0x7f09001b;
+        public static final int radioButton1=0x7f090019;
+        public static final int scrollView_stats=0x7f09000f;
+        public static final int scrollview_settings_cartab=0x7f09000d;
+        public static final int scrollview_settings_locationtab=0x7f09000e;
+        public static final int settings_menuitem_addCar=0x7f09001c;
+        public static final int settings_menuitem_addLocation=0x7f09001d;
+        public static final int settings_menuitem_editCar=0x7f09001e;
+        public static final int settings_menuitem_editLocation=0x7f09001f;
+        public static final int settings_menuitem_removeCar=0x7f090020;
+        public static final int settings_menuitem_removeLocation=0x7f090021;
+        public static final int tableRow_stats_FirstRow=0x7f090011;
+        public static final int tableRow_stats_ForthRow=0x7f090014;
+        public static final int tableRow_stats_SecondRow=0x7f090012;
+        public static final int tableRow_stats_ThirdRow=0x7f090013;
+        public static final int textView1=0x7f090018;
     }
     public static final class layout {
         public static final int activity_entry=0x7f030000;
@@ -71,11 +75,12 @@ public final class R {
         public static final int activity_menu=0x7f030002;
         public static final int activity_settings=0x7f030003;
         public static final int activity_stats=0x7f030004;
-        public static final int listview_menu_row=0x7f030005;
+        public static final int listview_item_settings=0x7f030005;
+        public static final int listview_menu_row=0x7f030006;
     }
     public static final class menu {
-        public static final int log_optionmenu=0x7f070000;
-        public static final int settings_optionmenu=0x7f070001;
+        public static final int log_optionmenu=0x7f080000;
+        public static final int settings_optionmenu=0x7f080001;
     }
     public static final class string {
         public static final int app_name=0x7f060000;
@@ -111,5 +116,8 @@ public final class R {
         public static final int stats_length_notaion=0x7f06001e;
         public static final int stats_litre=0x7f06001d;
         public static final int stats_monthly_consts=0x7f06001c;
+    }
+    public static final class style {
+        public static final int AppTheme=0x7f070000;
     }
 }
