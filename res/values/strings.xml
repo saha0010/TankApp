@@ -17,13 +17,18 @@
     <string name="settings_optionmenu_removeCar"		>Fahrzeug entfernen</string>
     <string name="settings_optionmenu_editCar"			>Fahrzeug bearbeiten</string>
     
+    <string name="settings_dialog_addcar">Bitte Autonamen eingeben:</string>
+    <string name="settings_dialog_addlocation">Bitte einen Ort oder Tankstelle eingeben:</string>
+    
     
     <string name="entry_label_1">Preis pro Liter:</string>
     <string name="entry_label_2">Getankte Liter:</string>
     <string name="entry_label_3">Kilometerstand:</string>
     <string name="entry_label_4">Ort/Tankstelle:</string>
+    <string name="entry_button_save">Speichern</string>
     
-    <string name="entry_optionmenu_remove">Letzten Eintrag entfernen</string>
+    <string name="entry_optionmenu_changecar">Fahrzeug ändern</string>
+    <string name="entry_optionmenu_addlocation">Ort/Tankstelle hinzufügen</string>
 
     
 	<string name="log_date"				>Datum</string>

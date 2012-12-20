@@ -31,6 +31,16 @@
 						android:layout_width="match_parent"	
 						android:layout_height="match_parent">					
 					</ScrollView>
+					<ListView 
+						android:id="@+id/ListView_settings_car"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:layout_gravity="center_horizontal"
+						android:divider="@android:drawable/divider_horizontal_bright"
+						android:dividerHeight="3dp"
+						android:footerDividersEnabled="true"
+						android:headerDividersEnabled="false" >
+					</ListView>
 
 
 				<ScrollView

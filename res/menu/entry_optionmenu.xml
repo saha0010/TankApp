@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+	<!-- TODO STRING ICON -->
+	<item
+		android:id="@+id/entry_menuitem_changeCar"
+		android:icon="@drawable/car"
+		android:title="@string/entry_optionmenu_changecar">
+	</item>
+	<item
+		android:id="@+id/entry_menuitem_addLocation"
+		android:icon="@drawable/map"
+		android:title="@string/entry_optionmenu_addlocation">
+	</item>
+
+</menu>
