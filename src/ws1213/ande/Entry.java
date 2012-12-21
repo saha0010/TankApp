@@ -19,8 +19,8 @@ public class Entry
 		this.newKilo = kilo;
 		this.newLiter = liter;
 		this.date = date;
-		this.location.set(loc);
-		this.car.set(car);
+		this.location = loc;
+		this.car = car;
 	}
 
 	

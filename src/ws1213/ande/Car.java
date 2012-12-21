@@ -7,6 +7,24 @@ public class Car
 	private String imageUrl;
 	private boolean isActive;
 	
+	public Car(long rowIndex, String name, String urlString, int bool)
+	{
+		this._id = rowIndex;
+		this.name = name;
+		this.imageUrl = urlString;
+		this.isActive = (bool > 0);
+	}
+	
+	
+	
+	@Override
+	public String toString()
+	{
+		return "Car: [_id=" + _id + ", name=" + name + ", imageUrl=" + imageUrl + ", isActive=" + isActive + "]";
+	}
+
+
+
 	public Car(long rowIndex, String name, String urlString)
 	{
 		this._id = rowIndex;
@@ -20,18 +38,13 @@ public class Car
 		this.imageUrl = urlString;
 		this.isActive = false;
 	}
-	public Car(String name, String urlString, boolean b)
+	public Car(String name, String urlString, int bool)
 	{
 		this.name = name;
 		this.imageUrl = urlString;
-		this.isActive = b;
+		this.isActive = (bool)>0;
 	}
-	public Car(String name, String urlString, int b)
-	{
-		this.name = name;
-		this.imageUrl = urlString;
-		this.isActive = (b>0);
-	}
+
 	
 
 	public void setActive(boolean b)
@@ -42,13 +55,6 @@ public class Car
 	public boolean isActive()
 	{
 		return isActive;
-	}
-	
-	public void set(Car car)
-	{
-		this._id = car.get_id();
-		this.name = car.getName();
-		this.imageUrl = car.getImageUrl();
 	}
 	
 	public long get_id()

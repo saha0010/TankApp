@@ -21,6 +21,7 @@
     <string name="settings_dialog_addlocation">Bitte einen Ort oder Tankstelle eingeben:</string>
     
     
+    <string name="entry_car_label">Ausgewähltes Auto:</string>
     <string name="entry_label_1">Preis pro Liter:</string>
     <string name="entry_label_2">Getankte Liter:</string>
     <string name="entry_label_3">Kilometerstand:</string>
@@ -36,14 +37,13 @@
 	<string name="log_litre"			>Liter getankt</string>
 	<string name="log_km"				>Tachostand</string>
 	<string name="log_location"			>Ort/Tankstelle</string>
-	
 	<string name="log_optionmenu_save"	>Auf SD-Karte speichern</string>
 	
 	
 	<string name="stats_consumtion_100"	>Verbrauch pro 100Km:</string>
 	<string name="stats_km_month"		>Km pro Monat:</string>
 	<string name="stats_cost_per_litre"	>Preis pro Liter:</string>
-	<string name="stats_monthly_consts"	>Montaliche Kosten:</string>
+	<string name="stats_monthly_consts"	>Monatliche Kosten:</string>
 	<string name="stats_litre"			>Liter</string>
 	<string name="stats_length_notaion"	>Km</string>
 	<string name="stats_currency"		>€</string>

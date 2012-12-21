@@ -11,11 +11,11 @@ public class Location
 		this.name = name;
 	}
 
-	public void set(Location l)
+	public Location(String name)
 	{
-		this._id = l.get_id();
-		this.name = l.getName();
+		this.name = name;
 	}
+
 	public long get_id()
 	{
 		return _id;

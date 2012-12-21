@@ -10,18 +10,30 @@
 		android:id="@+id/LinearLayout_entry"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
+		android:layout_gravity="right"
 		android:orientation="vertical" >
 
-		<TextView
-			android:id="@+id/TextView_entry_activecar"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+		<LinearLayout
+			android:layout_width="268dp"
+			android:layout_height="0dip"
 			android:layout_gravity="right"
-			android:gravity="fill_horizontal"
-			android:text="Tankeintrag für: + getCarName()"
-			android:textColor="@android:color/white"
-			android:textSize="@dimen/hint_size" >
-		</TextView>
+			android:layout_weight="0.52"
+			android:orientation="horizontal" >
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="right"
+				android:text="@string/entry_car_label" />
+
+			<TextView
+				android:id="@+id/textView_entry_activeCar"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="10dp"
+				android:text="Test String"
+				android:textAppearance="?android:attr/textAppearanceMedium" />
+		</LinearLayout>
 
 		<TextView
 			android:id="@+id/TextView_menu_label_1"
@@ -100,10 +112,10 @@
 		<Button
 			android:id="@+id/button_entry_save"
 			android:layout_width="135dp"
-			android:height="75dp"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center"
 			android:layout_marginTop="20dp"
+			android:height="75dp"
 			android:text="@string/entry_button_save" />
 	</LinearLayout>
 

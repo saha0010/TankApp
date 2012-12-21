@@ -10,9 +10,12 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
@@ -50,8 +53,10 @@ public class CarArrayAdapter extends ArrayAdapter<Car>
 	  	if(convertView == null)
 	  		{
 	  			mv = new RelativeLayout(getContext());
+	  			mv.setSelected(a);
 	  			String inflater = Context.LAYOUT_INFLATER_SERVICE;
-	  			LayoutInflater vi = (LayoutInflater)getContext().getSystemService(inflater);
+	  			LayoutInflater vi = (LayoutInflater)getContext().getSystemService(inflater);	
+	  			
 	  			vi.inflate(mResId,mv,true);	  		
 	  		}
 	  	else{
@@ -59,16 +64,25 @@ public class CarArrayAdapter extends ArrayAdapter<Car>
 	  	}
 	  		ImageButton b = (ImageButton)mv.findViewById(R.id.imageButton1);
 	  		b.setImageURI(Uri.parse(uri));
+	  		b.setFocusable(false);
+	  		b.setFocusableInTouchMode(false);
 	  		
 	  		TextView t = (TextView)mv.findViewById(R.id.textView1);
 	  		t.setText(name);
+	  		t.setFocusable(false);
+	  		t.setFocusableInTouchMode(false);
+	  		
 	  		
 	  		RadioButton r = (RadioButton)mv.findViewById(R.id.radioButton1);
 	  		r.setChecked(a);
+	  		r.setFocusable(false);
+	  		r.setFocusableInTouchMode(false);
 	  	
-	  	
+	  		mv.setFocusable(false);
+	  		mv.setFocusableInTouchMode(false);
+	  		
 			return mv;
 	  }
 
-
 	}
+

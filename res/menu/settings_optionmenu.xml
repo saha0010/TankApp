@@ -1,6 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+	
+		<!-- DEBUG -->
+<!-- 
+		<item
+			android:id="@+id/settings_menuitem_clearAll"
+			android:icon="@android:drawable/ic_menu_delete"
+			android:title="delete">
+		</item> 
+-->
+	
 	<!-- ADD -->
+
 		<item
 			android:id="@+id/settings_menuitem_addCar"
 			android:icon="@android:drawable/ic_menu_add"
