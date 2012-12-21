@@ -1,40 +1,84 @@
-/**
- * 
- */
 package ws1213.ande;
 
-import android.net.Uri;
-
-/**
- * @author Sascha Hayton
- *
- */
 public class Car
+{
+	private long _id;
+	private String name;
+	private String imageUrl;
+	private boolean isActive;
+	
+	public Car(long rowIndex, String name, String urlString)
 	{
-		private long id;
-		private Uri image;
-		private String name;
-		private boolean active;
-		
-		public Car()
-			{
-				super();
-			}
-		
-		public Car(Uri u,String n,boolean a)
-			{
-				image = u;
-				name = n;
-				active = a;
-			}
-		
-		public String getName(){return name;}
-		public Uri getUri(){return image;}
-		public long getId(){return id;}
-		public boolean isActive(){return active;}
-		
-		public void setName(String s){name = s;}
-		public void setUri(Uri u){image = u;}
-		public void setId(long l){id = l;}
-		public void setActive(boolean b){active = b;}
+		this._id = rowIndex;
+		this.name = name;
+		this.imageUrl = urlString;
+		this.isActive = false;
 	}
+	public Car(String name, String urlString)
+	{
+		this.name = name;
+		this.imageUrl = urlString;
+		this.isActive = false;
+	}
+	public Car(String name, String urlString, boolean b)
+	{
+		this.name = name;
+		this.imageUrl = urlString;
+		this.isActive = b;
+	}
+	public Car(String name, String urlString, int b)
+	{
+		this.name = name;
+		this.imageUrl = urlString;
+		this.isActive = (b>0);
+	}
+	
+
+	public void setActive(boolean b)
+	{
+		this.isActive = b;
+	}
+	
+	public boolean isActive()
+	{
+		return isActive;
+	}
+	
+	public void set(Car car)
+	{
+		this._id = car.get_id();
+		this.name = car.getName();
+		this.imageUrl = car.getImageUrl();
+	}
+	
+	public long get_id()
+	{
+		return _id;
+	}
+
+	public void set_id(long _id)
+	{
+		this._id = _id;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+
+	public String getImageUrl()
+	{
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl)
+	{
+		this.imageUrl = imageUrl;
+	}
+	
+}
