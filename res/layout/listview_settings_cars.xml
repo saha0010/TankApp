@@ -11,9 +11,9 @@
 		android:layout_alignBaseline="@+id/textView1"
 		android:layout_alignBottom="@+id/textView1"
 		android:layout_alignParentRight="true"
+		android:clickable="false"
 		android:focusable="false"
 		android:focusableInTouchMode="false"
-		android:clickable="false"
 		android:gravity="center"
 		android:height="75dp"
 		android:width="75dp" />
@@ -36,6 +36,8 @@
 		android:layout_alignParentLeft="true"
 		android:layout_alignParentTop="true"
 		android:layout_marginLeft="44dp"
-		android:src="@android:drawable/btn_dialog" />
+		android:src="@android:drawable/btn_dialog"
+		android:focusable="false"
+		android:focusableInTouchMode="false" />
 
 </RelativeLayout>

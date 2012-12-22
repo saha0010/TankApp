@@ -20,9 +20,21 @@ public class LocationArrayAdapter extends ArrayAdapter<Location>
 			this.mResId = mResId;
 			this.context = c;
 		}
-
 	@Override
-public View getView(int position, View convertView, ViewGroup parent)
+	public View getDropDownView(int position, View convertView,
+	ViewGroup parent) {
+	// TODO Auto-generated method stub
+	return getCustomView(position, convertView, parent);
+	}
+	
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+	// TODO Auto-generated method stub
+	return getCustomView(position, convertView, parent);
+	}
+
+	
+public View getCustomView(int position, View convertView, ViewGroup parent)
 	{
 		TextView tv ;
 		Location la = getItem(position);

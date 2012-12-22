@@ -212,8 +212,19 @@ public class TankDBAdapter
 	}
 */
 
+	
+	public boolean updateImageFormCar(long key, String uri)
+	{
+		Log.v(TAG,"updateCar(long "+key+"),  Sting "+uri);
+		ContentValues values  = new ContentValues();
+		values.put(CAR_KEY_IMAGEURL, uri);
+		
+		return (db.update(DB_CAR_TABLE, values, CAR_KEY_ROWID + "=" + key, null) > 0);	
+	}
+	
 	public boolean updateCar(long rowIndex, String name, String uri, boolean active)
 	{
+		Log.v(TAG,"updateCar(long "+rowIndex+"), String "+name+", Sting "+uri+", boolen "+active);
 		int act;
 		if(active)
 			act = 1;
@@ -223,7 +234,7 @@ public class TankDBAdapter
 		newValue.put(CAR_KEY_NAME, name);
 		newValue.put(CAR_KEY_IMAGEURL, uri);
 		newValue.put(CAR_KEY_ACTIVE, act);
-		Log.v(TAG,"updateCar(long "+rowIndex+"), String "+name+", Sting "+uri+", boolen "+active);
+		
 		return (db.update(DB_CAR_TABLE, newValue, CAR_KEY_ROWID + "=" + rowIndex, null) > 0);	
 	}
 

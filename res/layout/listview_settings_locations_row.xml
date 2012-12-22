@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/ListView_settings_location_row"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_gravity="center_horizontal"
+	android:divider="@android:drawable/divider_horizontal_dim_dark"
+	android:footerDividersEnabled="true"
+	android:headerDividersEnabled="false"
+	android:lines="1"
+	android:selectAllOnFocus="false"
+	android:text="test string"
+	android:textColor="@android:color/white"
+	android:textSize="@dimen/menu_item_size"/>

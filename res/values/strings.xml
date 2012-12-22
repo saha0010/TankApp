@@ -20,6 +20,10 @@
     <string name="settings_dialog_addcar">Bitte Autonamen eingeben:</string>
     <string name="settings_dialog_addlocation">Bitte einen Ort oder Tankstelle eingeben:</string>
     
+    <string name="settings_toast_notext">Kein Text eingegeben. Aktion wird abgebrochen!</string>
+    
+    <string name="settings_intent_makepicture">Mach ein Bild von deinem Auto</string>
+    <string name="settings_intent_choosepicture">Wähle ein Bild des Autos</string>
     
     <string name="entry_car_label">Ausgewähltes Auto:</string>
     <string name="entry_label_1">Preis pro Liter:</string>

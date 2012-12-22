@@ -106,7 +106,7 @@
 		<Spinner
 			android:id="@+id/Spinner_entry_location"
 			android:layout_width="fill_parent"
-			android:layout_height="66dp" >
+			android:layout_height="wrap_content">
 		</Spinner>
 
 		<Button

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,11 +18,12 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class EntryActivity extends AppActivity implements OnClickListener
+public class EntryActivity extends AppActivity
 {
 
 	private SharedPreferences	mSettings;
 	private TankDBAdapter		dbAdapter;
+	private static final String TAG = "entryDBUG";
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class EntryActivity extends AppActivity implements OnClickListener
         
         mSettings = getSharedPreferences(SETTINGS, MODE_PRIVATE);
         dbAdapter = new TankDBAdapter(this);
+     
         String activeCar;
         if(mSettings.contains(SETTINGS_ACTIVECAR))
         {
@@ -46,33 +49,47 @@ public class EntryActivity extends AppActivity implements OnClickListener
         tvCar.setText(activeCar);
         
         Button saveButton = (Button)findViewById(R.id.button_entry_save);
-        saveButton.setOnClickListener(this);
+        //saveButton.setOnClickListener(this);
         
         initLocationSpinner();
     }
 	
-	//TODO FIX SPINNER
+
 private void initLocationSpinner()
 {
 	Spinner spinner = (Spinner) findViewById(R.id.Spinner_entry_location);
-
-	ArrayList<Location> locations = new ArrayList<Location>();
+	ArrayAdapter<String> adapter;
+	ArrayList<String> locations = new ArrayList<String>();
+	
 	dbAdapter.open();
 		Cursor c = dbAdapter.getAllLocationsCursor();
+		Log.v(TAG, "cursor Size = "+c.getCount()+"");
 	dbAdapter.close();
-	while(c.moveToNext())
+	
+	while(c.moveToNext()) 
 	{
-		locations.add(new Location(c.getInt(0),c.getString(1)));
+		locations.add(c.getString(1));	
 	}
+	adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, locations);
+	Log.v(TAG, "adapter["+0+"] = "+ adapter.getItem(0));
+	c.moveToPosition(0);
+	Log.v(TAG, "cursor["+0+"] = "+ c.getString(1));
+	
+	//Log.v(TAG, "adapter["+c.moveToNext()+"] = "+ adapter.getItem(c.getPosition()));
+	//Log.v(TAG, "adapter Size = "+adapter.getCount()+"");
 	
 	
-	ArrayAdapter<Location> adapter = new ArrayAdapter<Location>(this, android.R.layout.simple_spinner_item, locations);
+	//String colors[] = {"Red","Blue","White","Yellow","Black", "Green","Purple","Orange","Grey"};	//Debugtest
+
+	
+	adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 	spinner.setAdapter(adapter);
 	
 	
 	if(mSettings.contains(SETTINGS_LOCATION))
 	{
-		spinner.setSelection(((int)mSettings.getLong(SETTINGS_LOCATION, 0)));
+		Log.v(TAG,mSettings.getLong(SETTINGS_LOCATION, 0)+"");
+		spinner.setSelection(((int)mSettings.getLong(SETTINGS_LOCATION, 0))-1);
 	}
 	// Handle spinner selections
     spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -81,7 +98,7 @@ private void initLocationSpinner()
 
             Editor editor = mSettings.edit();
             editor.remove(SETTINGS_LOCATION);
-            editor.putInt(SETTINGS_LOCATION, selectedItemPosition);
+            editor.putLong(SETTINGS_LOCATION, selectedItemPosition);
             editor.commit();
         }
 
@@ -89,11 +106,6 @@ private void initLocationSpinner()
         }
     });
 }
-	
-	public void onClick(View v)
-	{
-		// Intent i = new Intent(EntryActivity.this, addEntry.class);
-	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
