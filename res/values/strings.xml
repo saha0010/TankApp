@@ -34,6 +34,9 @@
     
     <string name="entry_optionmenu_changecar">Fahrzeug ändern</string>
     <string name="entry_optionmenu_addlocation">Ort/Tankstelle hinzufügen</string>
+    
+    <string name="entry_toast_chooselocation">Bitte zuerst eine/n Ort/Tankstellte unter Verwaltung anlegen.</string>
+    <string name="entry_toast_wrongentry">Es wurde eine Falsche eingabe gemacht</string>
 
     
 	<string name="log_date"				>Datum</string>

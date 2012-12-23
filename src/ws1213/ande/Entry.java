@@ -1,38 +1,54 @@
 package ws1213.ande;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 public class Entry
 {
-	private int			_id;
+	private long		_id;
 	private float		pProL;
 	private int			newKilo;
-	private int			newLiter;
+	private float		newLiter;
 	private Date		date;
 	private Location	location;
 	private Car			car;
 
-	public Entry(int id,float ppl, int kilo, int liter, Date date, Location loc, Car car)
+	public Entry(long id, float ppl, float liter, int kilo, long date, Location loc, Car car)
 	{
 		this._id = id;
 		this.pProL = ppl;
-		this.newKilo = kilo;
 		this.newLiter = liter;
-		this.date = date;
+		this.newKilo = kilo;
+		this.date = new Date(date);
 		this.location = loc;
 		this.car = car;
 	}
 
-	
-	
+	public Entry(float ppl, float liter, int kilo, long date, Location loc, Car car)
+	{
+		this.pProL = ppl;
+		this.newLiter = liter;
+		this.newKilo = kilo;
+		this.date = new Date(date);
+		this.location = loc;
+		this.car = car;
+	}
+
+	public Entry(float ppl, int kilo, float liter, long date)
+	{
+		this.pProL = ppl;
+		this.newKilo = kilo;
+		this.newLiter = liter;
+		this.date = new Date(date);
+	}
+
 	@Override
 	public String toString()
 	{
-		return "Entry [id=" + _id + ", pProL=" + pProL + ", newKilo=" + newKilo + ", newLiter=" + newLiter + ", date=" + date + ", location="
-				+ location.getName() + ", car=" + car.getName() + "]";
+		return "Entry [id=" + _id + ", pProL=" + pProL + ", newKilo=" + newKilo + ", newLiter=" + newLiter + ", date="
+				+ new SimpleDateFormat(AppActivity.DATE_FORMAT).format(date) + ", \n location=" + location.toString() + ",\n car=" + car.toString()
+				+ "]";
 	}
-
-
 
 	public float getpProL()
 	{
@@ -44,12 +60,12 @@ public class Entry
 		this.pProL = pProL;
 	}
 
-	public int get_id()
+	public long get_id()
 	{
 		return _id;
 	}
 
-	public void set_id(int _id)
+	public void set_id(long _id)
 	{
 		this._id = _id;
 	}
@@ -64,12 +80,12 @@ public class Entry
 		this.newKilo = newKilo;
 	}
 
-	public int getNewLiter()
+	public float getNewLiter()
 	{
 		return newLiter;
 	}
 
-	public void setNewLiter(int newLiter)
+	public void setNewLiter(float newLiter)
 	{
 		this.newLiter = newLiter;
 	}
@@ -79,9 +95,9 @@ public class Entry
 		return date;
 	}
 
-	public void setDate(Date date)
+	public void setDate(long date)
 	{
-		this.date = date;
+		this.date = new Date(date);
 	}
 
 	public Location getLocation()
@@ -103,6 +119,5 @@ public class Entry
 	{
 		this.car = car;
 	}
-	
-	
+
 }

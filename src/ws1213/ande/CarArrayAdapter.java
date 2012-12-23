@@ -4,6 +4,8 @@
 package ws1213.ande;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,8 +38,7 @@ public class CarArrayAdapter extends ArrayAdapter<Car>
 	private Context				context;
 	private int					mResId;
 	private OnClickListener		ocl;
-	private OnLongClickListener olcl;
-
+	private OnLongClickListener	olcl;
 
 	public CarArrayAdapter(Context c, int mResId, List<Car> items, OnClickListener ocl, OnLongClickListener olcl)
 	{
@@ -56,7 +57,7 @@ public class CarArrayAdapter extends ArrayAdapter<Car>
 		String name = car.getName();
 		String uri = car.getImageUrl();
 		boolean a = car.isActive();
-		
+
 		if (convertView == null)
 		{
 			mv = new RelativeLayout(getContext());
@@ -70,15 +71,25 @@ public class CarArrayAdapter extends ArrayAdapter<Car>
 		{
 			mv = (RelativeLayout) convertView;
 		}
+
 		ImageButton b = (ImageButton) mv.findViewById(R.id.imageButton1);
-		if(b!=null){
-		b.setImageURI(Uri.parse(uri));
-		b.setFocusable(false);
-		b.setFocusableInTouchMode(false);
-		b.setOnClickListener(ocl);
-		b.setOnLongClickListener(olcl);
+		if (b != null)
+		{
+			File f = new File(uri);
+			if (f.exists())
+			{
+				b.setImageURI(Uri.parse(uri));
+			}
+			else
+			{
+				b.setImageURI(AppActivity.DEFAULT_CAR_IMAGE_URI);
+			}
+
+			b.setFocusable(false);
+			b.setFocusableInTouchMode(false);
+			b.setOnClickListener(ocl);
+			b.setOnLongClickListener(olcl);
 		}
-		
 
 		TextView t = (TextView) mv.findViewById(R.id.textView1);
 		t.setText(name);
@@ -91,7 +102,5 @@ public class CarArrayAdapter extends ArrayAdapter<Car>
 		r.setFocusableInTouchMode(false);
 		return mv;
 	}
-
-
 
 }

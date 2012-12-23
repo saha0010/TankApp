@@ -11,6 +11,7 @@ public class Location
 		this.name = name;
 	}
 
+	
 	public Location(String name)
 	{
 		this.name = name;
@@ -35,5 +36,14 @@ public class Location
 	{
 		this.name = name;
 	}
+
+
+	@Override
+	public String toString()
+	{
+		return "Location [_id=" + _id + ", name=" + name + "]";
+	}
+	
+	
 	
 }

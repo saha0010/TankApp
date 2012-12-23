@@ -89,7 +89,8 @@ public final class R {
         public static final int dialog_locationadd=0x7f030006;
         public static final int listview_menu_row=0x7f030007;
         public static final int listview_settings_cars=0x7f030008;
-        public static final int listview_settings_locations_row=0x7f030009;
+        public static final int listview_settings_locations=0x7f030009;
+        public static final int listview_settings_locations_row=0x7f03000a;
     }
     public static final class menu {
         public static final int entry_optionmenu=0x7f070000;
@@ -107,13 +108,15 @@ public final class R {
         public static final int entry_label_4=0x7f060017;
         public static final int entry_optionmenu_addlocation=0x7f06001a;
         public static final int entry_optionmenu_changecar=0x7f060019;
+        public static final int entry_toast_chooselocation=0x7f06001b;
+        public static final int entry_toast_wrongentry=0x7f06001c;
         public static final int log=0x7f060004;
-        public static final int log_cost_per_litre=0x7f06001c;
-        public static final int log_date=0x7f06001b;
-        public static final int log_km=0x7f06001e;
-        public static final int log_litre=0x7f06001d;
-        public static final int log_location=0x7f06001f;
-        public static final int log_optionmenu_save=0x7f060020;
+        public static final int log_cost_per_litre=0x7f06001e;
+        public static final int log_date=0x7f06001d;
+        public static final int log_km=0x7f060020;
+        public static final int log_litre=0x7f06001f;
+        public static final int log_location=0x7f060021;
+        public static final int log_optionmenu_save=0x7f060022;
         public static final int menu=0x7f060001;
         public static final int settings=0x7f060003;
         public static final int settings_car=0x7f060006;
@@ -130,13 +133,13 @@ public final class R {
         public static final int settings_optionmenu_removeLocation=0x7f060009;
         public static final int settings_toast_notext=0x7f060010;
         public static final int stats=0x7f060005;
-        public static final int stats_consumtion_100=0x7f060021;
-        public static final int stats_cost_per_litre=0x7f060023;
-        public static final int stats_currency=0x7f060027;
-        public static final int stats_image_contentdesc=0x7f060028;
-        public static final int stats_km_month=0x7f060022;
-        public static final int stats_length_notaion=0x7f060026;
-        public static final int stats_litre=0x7f060025;
-        public static final int stats_monthly_consts=0x7f060024;
+        public static final int stats_consumtion_100=0x7f060023;
+        public static final int stats_cost_per_litre=0x7f060025;
+        public static final int stats_currency=0x7f060029;
+        public static final int stats_image_contentdesc=0x7f06002a;
+        public static final int stats_km_month=0x7f060024;
+        public static final int stats_length_notaion=0x7f060028;
+        public static final int stats_litre=0x7f060027;
+        public static final int stats_monthly_consts=0x7f060026;
     }
 }

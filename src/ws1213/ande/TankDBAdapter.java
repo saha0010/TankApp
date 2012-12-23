@@ -1,5 +1,6 @@
 package ws1213.ande;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import android.content.ContentValues;
@@ -24,20 +25,8 @@ public class TankDBAdapter
 	public static final String	ENTRY_KEY_DATE			= "date";
 	public static final String	ENTRY_KEY_LOCATION		= "lNr";
 	public static final String	ENTRY_KEY_CAR			= "cNr";
-
-	/*
-	 * Not used yet Intented for updating an entry
-	 */
-	/*
-	public static final int		ENTRY_ID_COL_NUM		= 0;
-	public static final int		ENTRY_PPROL_COL_NUM		= 1;
-	public static final int		ENTRY_NEWKILO_COL_NUM	= 2;
-	public static final int		ENTRY_NEWLITER_COL_NUM	= 3;
-	public static final int		ENTRY_DATE_COL_NUM		= 4;
-	public static final int		ENTRY_LOCATION_COL_NUM	= 5;
-	public static final int		ENTRY_CAR_COL_NUM		= 6;
-	*/
 	
+
 	public static final String	LOCATION_KEY_ROWID		= "_id";
 	public static final String	LOCATION_KEY_NAME		= "name";
 	public static final int		LOCATION_NAME_COL_NUM	= 1;
@@ -54,7 +43,7 @@ public class TankDBAdapter
 	public static final int		CAR_ACTIVE_COL_NUM		= 3;
 
 	public static final String	DB_NAME					= "TankDB";
-	//private static final String	DB_ENTRY_TABLE			= "entry";
+	private static final String	DB_ENTRY_TABLE			= "entry";
 	private static final String	DB_LOCATION_TABLE		= "location";
 	private static final String	DB_CAR_TABLE			= "car";
 	private static final int	DB_VERSION				= 1;
@@ -62,10 +51,10 @@ public class TankDBAdapter
 	private static final String	DB_CREATE_CAR		= "CREATE TABLE IF NOT EXISTS car(_id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR not null, imageUrl VARCHAR not null, active INTEGER not null)";
 	
 	
-	/*
-	 * private static final String	DB_CREATE_ENTRY		= "create table if not exists entry(_id INTEGER PRIMARY KEY AUTOINCREMENT, pProL VARCHAR not null, newKilo INTEGER not null, "
-															+ "newLiter  REAL not null, date LONG not null, lNr INTEGER REFERENCES location(_id) not null, cNr INTEGER REFERENCES car(_id) not null)";
-	  */	
+	
+	  private static final String	DB_CREATE_ENTRY		= "create table if not exists entry(_id INTEGER PRIMARY KEY AUTOINCREMENT, pProL FLOAT not null, newLiter FLOAT not null,"
+															+ "newKilo INTEGER not null, date DATETIME not null, lNr INTEGER REFERENCES location(_id) not null, cNr INTEGER REFERENCES car(_id) not null)";
+	  
 	private static final String	DB_CREATE_LOCATION	= "CREATE TABLE IF NOT EXISTS location(_id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR not null)";
 
 
@@ -76,6 +65,7 @@ public class TankDBAdapter
 	private SQLiteDatabase		db;
 	private final Context 		context;
 	private DBOpenHelper		dbHelper;
+	private SimpleDateFormat	sdf;
 
 	private static class DBOpenHelper extends SQLiteOpenHelper
 	{
@@ -99,7 +89,7 @@ public class TankDBAdapter
 			Log.v(TAG, "Upgrading from verion " + oldVersion + " to " + newVersion + ", which will destroy all old data");
 			db.execSQL("DROP TABLE IF EXISTS" + "DB_CAR_TABLE");
 			db.execSQL("DROP TABLE IF EXISTS" + "DB_LOCATION_TABLE");
-			//db.execSQL("DROP TABLE IF EXISTS" + "DB_ENTRY_TABLE");
+			db.execSQL("DROP TABLE IF EXISTS" + "DB_ENTRY_TABLE");
 			onCreate(db);
 		}
 		
@@ -114,7 +104,7 @@ public class TankDBAdapter
 	{
 		db.execSQL(DB_CREATE_CAR);
 		db.execSQL(DB_CREATE_LOCATION);
-		//db.execSQL(DB_CREATE_ENTRY);
+		db.execSQL(DB_CREATE_ENTRY);
 	}
 	public void open() throws SQLiteException
 	{
@@ -190,10 +180,11 @@ public class TankDBAdapter
 		Log.v(TAG, "INSERT LOCATION " + insertedRowIndex + loc.toString());
 		return insertedRowIndex;
 	}	
-/*
-	private long insertEntry(Entry ent)
+
+	public long insertEntry(Entry ent)
 	{
 		ContentValues newEntryValues = new ContentValues();
+		sdf = new SimpleDateFormat(AppActivity.DATE_FORMAT);
 		newEntryValues.put(ENTRY_KEY_PPROL, ent.getpProL());
 		newEntryValues.put(ENTRY_KEY_NEWKILO, ent.getNewKilo());
 		newEntryValues.put(ENTRY_KEY_NEWLITER, ent.getNewLiter());
@@ -205,12 +196,11 @@ public class TankDBAdapter
 		Log.v(TAG, "INSERT ENTRY " + insertedRowIndex + ent.toString());
 		return insertedRowIndex;
 	}
-/*
+
 	public boolean removeEntrybyIndex(long rowIndex)
 	{
 		return (db.delete(DB_ENTRY_TABLE, ENTRY_KEY_ROWID + " = " + rowIndex, null) > 0);
 	}
-*/
 
 	
 	public boolean updateImageFormCar(long key, String uri)
@@ -244,13 +234,13 @@ public class TankDBAdapter
 		newValue.put(LOCATION_KEY_NAME, name);
 		return (db.update(DB_LOCATION_TABLE, newValue, LOCATION_KEY_ROWID + "=" + rowIndex, null) > 0);
 	}
-	/*
+	
 	public Cursor getAllEntriesCursor()
 	{
 		return db.query(DB_ENTRY_TABLE, new String[ ] { ENTRY_KEY_ROWID, ENTRY_KEY_PPROL, ENTRY_KEY_NEWKILO, ENTRY_KEY_NEWLITER, ENTRY_KEY_DATE,
 				ENTRY_KEY_LOCATION, ENTRY_KEY_CAR }, null, null, null, null, null);
 	}
-*/
+
 	public Cursor getAllCarsCursor()
 	{
 		return db.query(DB_CAR_TABLE, new String[ ] { CAR_KEY_ROWID, CAR_KEY_NAME, CAR_KEY_IMAGEURL, CAR_KEY_ACTIVE }, null, null, null, null, null);
@@ -269,7 +259,20 @@ public class TankDBAdapter
 		if ((rs.getCount() == 0 || !rs.moveToFirst())) { throw new SQLException("No Car found for row: " + rowIndex); }
 		return rs;
 	}
-
+	public Cursor setCursorLocationToIndex(long rowIndex)
+	{
+		Cursor rs = db.query(true, DB_LOCATION_TABLE, new String[ ]{LOCATION_KEY_ROWID, LOCATION_KEY_NAME}, LOCATION_KEY_ROWID +"="+rowIndex, null, null, null, null, null);
+		if((rs.getCount() == 0 || !rs.moveToFirst())) {throw new SQLException("No Location found for row: "+ rowIndex); }
+		return rs;
+	}
+	
+	public Cursor setCursorEntryToIndex(long rowIndex)
+	{
+		Cursor rs = db.query(true, DB_ENTRY_TABLE, new String[ ]{ENTRY_KEY_ROWID, ENTRY_KEY_PPROL,ENTRY_KEY_NEWKILO,ENTRY_KEY_NEWLITER,
+				ENTRY_KEY_DATE,ENTRY_KEY_LOCATION,ENTRY_KEY_CAR }, ENTRY_KEY_ROWID + "=" + rowIndex, null, null, null, null, null);
+		if((rs.getCount() == 0 || !rs.moveToFirst())){throw new SQLException("No Entry found for row: "+ rowIndex); }
+		return rs;
+	}
 	
 	public void printLocationsOnLog()
 	{
@@ -286,6 +289,26 @@ public class TankDBAdapter
 			Log.v(TAG,"Keine Einträge in Locations");
 	}
 	
+	public Car getCarFromId(long rowId)
+	{
+		Cursor c = setCursorCarToIndex(rowId);
+		return(new Car(c.getLong(0),c.getString(1),c.getString(2),c.getInt(3)));
+	}
+	
+	public Location getLocationFromId(long rowId)
+	{
+		Cursor c = setCursorLocationToIndex(rowId);
+		return (new Location(c.getLong(LOCATION_ID_COL_NUM),c.getString(LOCATION_NAME_COL_NUM)));
+	}
+	
+	public Entry getEntryFromId(long rowId)
+	{
+		Cursor c = setCursorEntryToIndex(rowId);
+		Car car = getCarFromId(c.getLong(6));
+		Location loc = getLocationFromId(c.getLong(5));
+		
+		return (new Entry(c.getLong(0),c.getFloat(1),c.getFloat(2),c.getInt(3),c.getLong(4), loc, car));	
+	}
 	
 	public void printCarsOnLog()
 	{
