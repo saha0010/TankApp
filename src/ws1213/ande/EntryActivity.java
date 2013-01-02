@@ -1,27 +1,24 @@
 package ws1213.ande;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import android.os.Bundle;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
-import android.text.format.Time;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.EditText;
 
 public class EntryActivity extends AppActivity
 {
@@ -46,11 +43,11 @@ public class EntryActivity extends AppActivity
 		String activeCar;
 		if (mSettings.contains(SETTINGS_ACTIVECAR))
 		{
-			activeCar = mSettings.getString(SETTINGS_ACTIVECAR, "Kein Auto in mSettings");
+			activeCar = mSettings.getString(SETTINGS_ACTIVECAR, getResources().getString(R.string.tost_noactivecar));
 		}
 		else
 		{
-			activeCar = "Bitte zu erst ein Auto erstellen!";
+			activeCar = getResources().getString(R.string.tost_noactivecar);
 			OK = false;
 		}
 
@@ -96,7 +93,8 @@ public class EntryActivity extends AppActivity
 						long entId = dbAdapter.insertEntry(e);
 
 						e = dbAdapter.getEntryFromId(entId);					
-						
+						Toast a = Toast.makeText(getBaseContext(), R.string.entry_toast_savesucess, Toast.LENGTH_LONG);
+						a.show();
 					}
 					else{
 						OK = true;

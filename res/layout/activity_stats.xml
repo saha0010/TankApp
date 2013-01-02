@@ -56,12 +56,11 @@
 		</TableLayout>
 
 		<ImageView
-			android:id="@+id/imageView_stats"
+			android:id="@+id/ImageView_stats"
 			android:layout_width="240dp"
 			android:layout_height="240dp"
 			android:layout_gravity="center_horizontal"
-			android:contentDescription="@string/stats_image_contentdesc"
-			android:src="@android:drawable/alert_dark_frame" />
+			android:contentDescription="@string/stats_image_contentdesc" />
 	</LinearLayout>
 
 </ScrollView>

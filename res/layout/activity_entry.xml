@@ -70,7 +70,7 @@
 			android:layout_width="220dp"
 			android:layout_height="wrap_content"
 			android:inputType="textPersonName|numberDecimal"
-			android:maxLength="4"
+			android:maxLength="5"
 			android:maxLines="1" >
 		</EditText>
 
@@ -89,7 +89,7 @@
 			android:layout_width="220dp"
 			android:layout_height="wrap_content"
 			android:inputType="textPersonName|numberDecimal"
-			android:maxLength="5"
+			android:maxLength="6"
 			android:maxLines="1" >
 		</EditText>
 

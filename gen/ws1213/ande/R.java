@@ -21,9 +21,10 @@ public final class R {
     }
     public static final class dimen {
         public static final int avatar_size=0x7f050000;
-        public static final int hint_size=0x7f050003;
+        public static final int hint_size=0x7f050004;
         public static final int label_size=0x7f050002;
-        public static final int menu_item_size=0x7f050004;
+        public static final int log_size=0x7f050003;
+        public static final int menu_item_size=0x7f050005;
         public static final int title_size=0x7f050001;
     }
     public static final class drawable {
@@ -32,6 +33,7 @@ public final class R {
         public static final int ic_launcher=0x7f020002;
         public static final int ma=0x7f020003;
         public static final int map=0x7f020004;
+        public static final int tablebg=0x7f020005;
     }
     public static final class id {
         public static final int EditText_Dialog_CarAdd=0x7f080019;
@@ -40,6 +42,7 @@ public final class R {
         public static final int EditText_entry_kilometerStand=0x7f080008;
         public static final int EditText_entry_tankedLitre=0x7f080006;
         public static final int GridView1=0x7f08001e;
+        public static final int ImageView_stats=0x7f080016;
         public static final int LinearLayout_entry=0x7f080001;
         public static final int ListView_Menu=0x7f08000d;
         public static final int ListView_settings_cartab=0x7f08000e;
@@ -48,8 +51,8 @@ public final class R {
         public static final int LocationRoot=0x7f08001a;
         public static final int ScrollViewEntry=0x7f080000;
         public static final int Spinner_entry_location=0x7f08000a;
+        public static final int TableLayout_Log=0x7f08000c;
         public static final int TableLayout_stats=0x7f080011;
-        public static final int TableView_Log=0x7f08000c;
         public static final int TextView_Dialog_CarAdd=0x7f080018;
         public static final int TextView_Dialog_LocationAdd=0x7f08001b;
         public static final int TextView_entry_label_3=0x7f080007;
@@ -61,7 +64,6 @@ public final class R {
         public static final int entry_menuitem_addLocation=0x7f080024;
         public static final int entry_menuitem_changeCar=0x7f080023;
         public static final int imageButton1=0x7f080021;
-        public static final int imageView_stats=0x7f080016;
         public static final int listview_menu_row=0x7f08001d;
         public static final int log_menuitem_save=0x7f080025;
         public static final int radioButton1=0x7f08001f;
@@ -109,14 +111,16 @@ public final class R {
         public static final int entry_optionmenu_addlocation=0x7f06001a;
         public static final int entry_optionmenu_changecar=0x7f060019;
         public static final int entry_toast_chooselocation=0x7f06001b;
+        public static final int entry_toast_savesucess=0x7f06001d;
         public static final int entry_toast_wrongentry=0x7f06001c;
         public static final int log=0x7f060004;
-        public static final int log_cost_per_litre=0x7f06001e;
-        public static final int log_date=0x7f06001d;
-        public static final int log_km=0x7f060020;
-        public static final int log_litre=0x7f06001f;
-        public static final int log_location=0x7f060021;
-        public static final int log_optionmenu_save=0x7f060022;
+        public static final int log_cost_per_litre=0x7f06001f;
+        public static final int log_date=0x7f06001e;
+        public static final int log_km=0x7f060021;
+        public static final int log_litre=0x7f060020;
+        public static final int log_location=0x7f060022;
+        public static final int log_optionmenu_save=0x7f060023;
+        public static final int log_toast_datasaved=0x7f060024;
         public static final int menu=0x7f060001;
         public static final int settings=0x7f060003;
         public static final int settings_car=0x7f060006;
@@ -133,13 +137,15 @@ public final class R {
         public static final int settings_optionmenu_removeLocation=0x7f060009;
         public static final int settings_toast_notext=0x7f060010;
         public static final int stats=0x7f060005;
-        public static final int stats_consumtion_100=0x7f060023;
-        public static final int stats_cost_per_litre=0x7f060025;
-        public static final int stats_currency=0x7f060029;
-        public static final int stats_image_contentdesc=0x7f06002a;
-        public static final int stats_km_month=0x7f060024;
-        public static final int stats_length_notaion=0x7f060028;
-        public static final int stats_litre=0x7f060027;
-        public static final int stats_monthly_consts=0x7f060026;
+        public static final int stats_consumtion_100=0x7f060025;
+        public static final int stats_cost_per_litre=0x7f060027;
+        public static final int stats_currency=0x7f06002b;
+        public static final int stats_image_contentdesc=0x7f06002c;
+        public static final int stats_km_month=0x7f060026;
+        public static final int stats_length_notaion=0x7f06002a;
+        public static final int stats_litre=0x7f060029;
+        public static final int stats_monthly_consts=0x7f060028;
+        public static final int stats_toast_nostats=0x7f06002d;
+        public static final int tost_noactivecar=0x7f06002e;
     }
 }

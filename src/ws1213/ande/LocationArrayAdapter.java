@@ -12,12 +12,9 @@ public class LocationArrayAdapter extends ArrayAdapter<Location>
 {
 
 	private Context context;
-	private int mResId;  
-
 	public LocationArrayAdapter(Context c, int mResId, List<Location> items)
 		{
 			super(c,mResId, items);
-			this.mResId = mResId;
 			this.context = c;
 		}
 	@Override

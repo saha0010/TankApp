@@ -1,7 +1,6 @@
 package ws1213.ande;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -57,16 +56,9 @@ public class TankDBAdapter
 	  
 	private static final String	DB_CREATE_LOCATION	= "CREATE TABLE IF NOT EXISTS location(_id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR not null)";
 
-
-	
-	
-	
-	
 	private SQLiteDatabase		db;
 	private final Context 		context;
 	private DBOpenHelper		dbHelper;
-	private SimpleDateFormat	sdf;
-
 	private static class DBOpenHelper extends SQLiteOpenHelper
 	{
 
@@ -184,10 +176,10 @@ public class TankDBAdapter
 	public long insertEntry(Entry ent)
 	{
 		ContentValues newEntryValues = new ContentValues();
-		sdf = new SimpleDateFormat(AppActivity.DATE_FORMAT);
+		new SimpleDateFormat(AppActivity.DATE_FORMAT);
 		newEntryValues.put(ENTRY_KEY_PPROL, ent.getpProL());
-		newEntryValues.put(ENTRY_KEY_NEWKILO, ent.getNewKilo());
 		newEntryValues.put(ENTRY_KEY_NEWLITER, ent.getNewLiter());
+		newEntryValues.put(ENTRY_KEY_NEWKILO, ent.getNewKilo());
 		newEntryValues.put(ENTRY_KEY_DATE, ent.getDate().getTime());
 		newEntryValues.put(ENTRY_KEY_LOCATION, ent.getLocation().get_id());
 		newEntryValues.put(ENTRY_KEY_CAR, ent.getCar().get_id());
@@ -237,7 +229,7 @@ public class TankDBAdapter
 	
 	public Cursor getAllEntriesCursor()
 	{
-		return db.query(DB_ENTRY_TABLE, new String[ ] { ENTRY_KEY_ROWID, ENTRY_KEY_PPROL, ENTRY_KEY_NEWKILO, ENTRY_KEY_NEWLITER, ENTRY_KEY_DATE,
+		return db.query(DB_ENTRY_TABLE, new String[ ] { ENTRY_KEY_ROWID, ENTRY_KEY_PPROL,  ENTRY_KEY_NEWLITER, ENTRY_KEY_NEWKILO,ENTRY_KEY_DATE,
 				ENTRY_KEY_LOCATION, ENTRY_KEY_CAR }, null, null, null, null, null);
 	}
 
@@ -268,7 +260,7 @@ public class TankDBAdapter
 	
 	public Cursor setCursorEntryToIndex(long rowIndex)
 	{
-		Cursor rs = db.query(true, DB_ENTRY_TABLE, new String[ ]{ENTRY_KEY_ROWID, ENTRY_KEY_PPROL,ENTRY_KEY_NEWKILO,ENTRY_KEY_NEWLITER,
+		Cursor rs = db.query(true, DB_ENTRY_TABLE, new String[ ]{ENTRY_KEY_ROWID, ENTRY_KEY_PPROL, ENTRY_KEY_NEWLITER,ENTRY_KEY_NEWKILO,
 				ENTRY_KEY_DATE,ENTRY_KEY_LOCATION,ENTRY_KEY_CAR }, ENTRY_KEY_ROWID + "=" + rowIndex, null, null, null, null, null);
 		if((rs.getCount() == 0 || !rs.moveToFirst())){throw new SQLException("No Entry found for row: "+ rowIndex); }
 		return rs;
@@ -324,5 +316,31 @@ public class TankDBAdapter
 		else
 			Log.v(TAG,"Keine Einträge in CARS");
 	}
+	
+	public Entry getLastEntryFromCarById(long rowId)
+	{
+		Cursor c = 	db.query(true, DB_ENTRY_TABLE, new String[ ] { ENTRY_KEY_ROWID, ENTRY_KEY_PPROL,ENTRY_KEY_NEWLITER, ENTRY_KEY_NEWKILO,  ENTRY_KEY_DATE,
+				ENTRY_KEY_LOCATION, ENTRY_KEY_CAR }, ENTRY_KEY_CAR +"="+rowId, null, null, null, ENTRY_KEY_DATE+" DESC", "1");
+		c.moveToFirst();
+		Car car = getCarFromId(c.getLong(6));
+		Location loc = getLocationFromId(c.getLong(5));
+		
+	
+		return (new Entry(c.getLong(0),c.getFloat(1),c.getFloat(2),c.getInt(3),c.getLong(4), loc, car));	
+	}
+	
+	public Cursor getAllEntriesFormCarByIdCursor(long rowId)
+	{
+		return db.query(DB_ENTRY_TABLE, new String[ ] { ENTRY_KEY_ROWID, ENTRY_KEY_PPROL, ENTRY_KEY_NEWLITER, ENTRY_KEY_NEWKILO, ENTRY_KEY_DATE,
+				ENTRY_KEY_LOCATION, ENTRY_KEY_CAR }, ENTRY_KEY_CAR + "=" + rowId, null, null, null, ENTRY_KEY_DATE+" DESC");
+	}
+	
+	public Cursor getAllEntriesFormCarByIdGroupedByDateCursor(long rowId)
+	{
+		return db.query(true, DB_ENTRY_TABLE, new String[ ] { ENTRY_KEY_ROWID, ENTRY_KEY_PPROL, ENTRY_KEY_NEWLITER, ENTRY_KEY_NEWKILO, ENTRY_KEY_DATE,
+				ENTRY_KEY_LOCATION, ENTRY_KEY_CAR }, ENTRY_KEY_CAR+"="+rowId, null, "date", null, ENTRY_KEY_DATE+" DESC", null);
+	
+	}
+	
 	
 }

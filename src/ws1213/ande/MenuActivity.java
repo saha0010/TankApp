@@ -1,8 +1,5 @@
 package ws1213.ande;
 
-import java.io.File;
-import java.io.FileOutputStream;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;

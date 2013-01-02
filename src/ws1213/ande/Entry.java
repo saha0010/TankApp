@@ -7,8 +7,8 @@ public class Entry
 {
 	private long		_id;
 	private float		pProL;
-	private int			newKilo;
 	private float		newLiter;
+	private int			newKilo;
 	private Date		date;
 	private Location	location;
 	private Car			car;
@@ -34,19 +34,19 @@ public class Entry
 		this.car = car;
 	}
 
-	public Entry(float ppl, int kilo, float liter, long date)
+	public Entry(float ppl, float liter,int kilo, long date)
 	{
-		this.pProL = ppl;
-		this.newKilo = kilo;
+		this.pProL = ppl;		
 		this.newLiter = liter;
+		this.newKilo = kilo;
 		this.date = new Date(date);
 	}
 
 	@Override
 	public String toString()
 	{
-		return "Entry [id=" + _id + ", pProL=" + pProL + ", newKilo=" + newKilo + ", newLiter=" + newLiter + ", date="
-				+ new SimpleDateFormat(AppActivity.DATE_FORMAT).format(date) + ", \n location=" + location.toString() + ",\n car=" + car.toString()
+		return "Entry [id=" + _id + ", pProL=" + pProL + "newLiter=" + newLiter + ", newKilo ="+newKilo + ", date="
+				+ new SimpleDateFormat(AppActivity.DATE_FORMAT).format(date) + ", location=" + location.getName() + ", car=" + car.getName()
 				+ "]";
 	}
 

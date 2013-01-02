@@ -4,25 +4,15 @@
 package ws1213.ande;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
@@ -35,16 +25,14 @@ import android.widget.TextView;
  */
 public class CarArrayAdapter extends ArrayAdapter<Car>
 {
-	private Context				context;
-	private int					mResId;
-	private OnClickListener		ocl;
-	private OnLongClickListener	olcl;
+	private final int					mResId;
+	private final OnClickListener		ocl;
+	private final OnLongClickListener	olcl;
 
 	public CarArrayAdapter(Context c, int mResId, List<Car> items, OnClickListener ocl, OnLongClickListener olcl)
 	{
 		super(c, mResId, items);
 		this.mResId = mResId;
-		this.context = c;
 		this.ocl = ocl;
 		this.olcl = olcl;
 	}
@@ -54,36 +42,30 @@ public class CarArrayAdapter extends ArrayAdapter<Car>
 	{
 		RelativeLayout mv;
 		final Car car = getItem(position);
-		String name = car.getName();
-		String uri = car.getImageUrl();
-		boolean a = car.isActive();
+		final String name = car.getName();
+		final String uri = car.getImageUrl();
+		final boolean a = car.isActive();
 
 		if (convertView == null)
 		{
 			mv = new RelativeLayout(getContext());
 			mv.setSelected(a);
-			String inflater = Context.LAYOUT_INFLATER_SERVICE;
-			LayoutInflater vi = (LayoutInflater) getContext().getSystemService(inflater);
+			final String inflater = Context.LAYOUT_INFLATER_SERVICE;
+			final LayoutInflater vi = (LayoutInflater) getContext().getSystemService(inflater);
 
 			vi.inflate(mResId, mv, true);
 		}
 		else
-		{
 			mv = (RelativeLayout) convertView;
-		}
 
-		ImageButton b = (ImageButton) mv.findViewById(R.id.imageButton1);
+		final ImageButton b = (ImageButton) mv.findViewById(R.id.imageButton1);
 		if (b != null)
 		{
-			File f = new File(uri);
+			final File f = new File(uri);
 			if (f.exists())
-			{
 				b.setImageURI(Uri.parse(uri));
-			}
 			else
-			{
 				b.setImageURI(AppActivity.DEFAULT_CAR_IMAGE_URI);
-			}
 
 			b.setFocusable(false);
 			b.setFocusableInTouchMode(false);
@@ -91,12 +73,12 @@ public class CarArrayAdapter extends ArrayAdapter<Car>
 			b.setOnLongClickListener(olcl);
 		}
 
-		TextView t = (TextView) mv.findViewById(R.id.textView1);
+		final TextView t = (TextView) mv.findViewById(R.id.textView1);
 		t.setText(name);
 		t.setFocusable(false);
 		t.setFocusableInTouchMode(false);
 
-		RadioButton r = (RadioButton) mv.findViewById(R.id.radioButton1);
+		final RadioButton r = (RadioButton) mv.findViewById(R.id.radioButton1);
 		r.setChecked(a);
 		r.setFocusable(false);
 		r.setFocusableInTouchMode(false);

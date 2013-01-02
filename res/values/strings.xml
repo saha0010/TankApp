@@ -37,14 +37,17 @@
     
     <string name="entry_toast_chooselocation">Bitte zuerst eine/n Ort/Tankstellte unter Verwaltung anlegen.</string>
     <string name="entry_toast_wrongentry">Es wurde eine Falsche eingabe gemacht</string>
+    <string name="entry_toast_savesucess">Eintrag wurde gespeichert!</string>
 
     
-	<string name="log_date"				>Datum</string>
-	<string name="log_cost_per_litre"	>Euro/Liter</string>
-	<string name="log_litre"			>Liter getankt</string>
-	<string name="log_km"				>Tachostand</string>
-	<string name="log_location"			>Ort/Tankstelle</string>
+	<string name="log_date"				>Datum\n\t</string>
+	<string name="log_cost_per_litre"	>Euro\nLiter</string>
+	<string name="log_litre"			>Liter\n\t </string>
+	<string name="log_km"				>Km\n\t</string>
+	<string name="log_location"			>Ort\nTankstelle</string>
 	<string name="log_optionmenu_save"	>Auf SD-Karte speichern</string>
+	<string name="log_toast_datasaved">Log wurde auf SD-Karte gespeichert</string>
+	
 	
 	
 	<string name="stats_consumtion_100"	>Verbrauch pro 100Km:</string>
@@ -56,4 +59,8 @@
 	<string name="stats_currency"		>€</string>
 	
   	<string name="stats_image_contentdesc"	>Grafische Anzeige der Statistiken</string>
+  	<string name="stats_toast_nostats">Keine Statistik verfügbar</string>
+  	
+  
+  	<string name="tost_noactivecar">Kein aktives Auto ausgewählt</string>
 </resources>
